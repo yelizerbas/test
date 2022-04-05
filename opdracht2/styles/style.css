@@ -214,6 +214,12 @@ section div.btn {
 *********************************************
 ********************************************/
 @media only screen and (max-width: 767px) {
+	label{
+		margin-top: 2em;
+		margin-bottom: 1em;
+		color: var(--color-white);
+	}
+	
 	ul{
 		width: fit-content;
 		margin: 0 auto;
@@ -221,6 +227,7 @@ section div.btn {
 
 	ul li img {
 		height: 14em;
+		margin-left: 1em;
 	}
 }
 
@@ -228,7 +235,7 @@ section div.btn {
   @media only screen and (min-width: 768px) and (max-width: 1200px) {
 	
 	label{
-		margin-top: -25%;
+		margin-top: -15%;
 		font-size: 1.7em;
 		color: var(--color-white);
 	} 
@@ -245,10 +252,14 @@ section div.btn {
 	ul{
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+		gap: 1em;
 	}
 
 	ul li img {
-		margin-top: 4em;
+		margin-top: 3em;
+		height: 20em;
+		object-fit: contain;
+		margin-left: 1em;
 	}
 	section div.btn {
 		margin-left: 45%;
@@ -286,11 +297,16 @@ section div.btn {
 		height: 20em;
 	}
 
-	p{
+	p {
 		margin-bottom: 8em;
 	}
 	section div.btn {
 		margin-left: 45%;
+	}
+
+	ul {
+		margin-top: 2em;
+		margin-left: 3em;
 	}
 }
 
