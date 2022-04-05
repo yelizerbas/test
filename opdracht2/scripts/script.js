@@ -83,9 +83,6 @@ function removeMovie(event){
 for (let i=0; i<favoriteButton.length; i++) {
   favoriteButton[i].addEventListener("click", saveMovie);
 }
-for (let i=0; i<favoriteButton.length; i++) {
-  favoriteButton[i].addEventListener("swipe", saveMovie);
-}
 
 // function menu
 function slide() {

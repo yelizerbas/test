@@ -117,7 +117,7 @@ ul li.zichtbaar {
 
 /********************************************
 *********************************************
-***************FILM FOTO'S*******************
+********************FILMS********************
 *********************************************
 ********************************************/
 li {
@@ -128,18 +128,13 @@ li {
 	position: relative;
 }
 
-/* ul li button {
-	position: absolute;
-	top: 0;
-	right: 0;
-} */
 
 ul li img {
 	height: 25em;
 	object-fit: contain;
 }
 
-li button {
+ul li button {
 	border: none;
 	position: absolute;
 	top: 0;
@@ -149,9 +144,14 @@ li button {
 	background-color: var(--color-purple);
 }
 
-/* li button img {
-	width: fit-content;
-} */
+ul li button:hover{
+	background-color: var(--color-dark-purple);
+}
+
+ul li button img {
+	width: 2em;
+	height: 2em;
+}
 /********************************************
 *********************************************
 ********************GRID*********************
@@ -163,7 +163,6 @@ ul{
 	row-gap: 2em;
 	margin: 0 auto;
 }
-
 
 /********************************************
 *********************************************
@@ -195,6 +194,60 @@ section div.btn {
 	color: var(--color-white);
 	background-color: var(--color-white); 
 }
+
+/********************************************
+*********************************************
+***************BLOB ANIMATIE*****************
+*********************************************
+********************************************/
+@keyframes draaien{
+	0% {
+	  transform:rotate(0turn);
+	}
+	100% {
+	  transform:rotate(1turn);
+	}
+  }
+
+  @keyframes blob {
+	0% {
+	  border-radius: 30% 50% 70% 30% / 40% 60% 80% 40%;
+	}
+	20% {
+	  border-radius:40% 60% 30% 60% / 50% 60% 30% 40%;
+	}
+	40% {
+	  border-radius:50% 40% 45% 40% / 55% 70% 20% 30%;
+	}
+	60% {
+	  border-radius:60% 40% 60% 35% / 50% 35% 65% 40%;
+	}
+	80% {
+	  border-radius:40% 60% 30% 40% / 20% 70% 30% 50%;
+	}
+	100% {
+	  border-radius: 30% 50% 70% 30% / 40% 60% 80% 40%;
+	}
+  }
+
+  section.blob{
+	  z-index: -100;
+  }
+  
+  section.blob div {
+	width:9em; height:9em;
+	background-color: var(--color-purple);
+	animation:blob 10s linear infinite paused, draaien 40s linear infinite paused;
+  }
+  
+  section.blob div {
+	animation-play-state:running;
+	position: relative;
+  }
+
+  section div.blob2 {
+	position: relative;
+  }
 
 /********************************************
 *********************************************
@@ -265,7 +318,7 @@ section div.btn {
 	}
 
 	ul li img {
-		margin-top: 3em;
+		/* margin-top: 3em; */
 		height: 20em;
 		object-fit: contain;
 		margin-left: 1em;
@@ -319,7 +372,7 @@ section div.btn {
 		margin-bottom: 8em;
 	}
 	section div.btn {
-		margin-left: 45%;
+		margin-left: 48%;
 	}
 
 	ul {
@@ -337,64 +390,3 @@ section div.btn {
 	  }
 	
 }
-
-
-
-/********************************************
-*********************************************
-***************BLOB ANIMATIE*****************
-*********************************************
-********************************************/
-@keyframes draaien{
-	0% {
-	  transform:rotate(0turn);
-	}
-	100% {
-	  transform:rotate(1turn);
-	}
-  }
-
-  @keyframes blob {
-	0% {
-	  border-radius: 30% 50% 70% 30% / 40% 60% 80% 40%;
-	}
-	20% {
-	  border-radius:40% 60% 30% 60% / 50% 60% 30% 40%;
-	}
-	40% {
-	  border-radius:50% 40% 45% 40% / 55% 70% 20% 30%;
-	}
-	60% {
-	  border-radius:60% 40% 60% 35% / 50% 35% 65% 40%;
-	}
-	80% {
-	  border-radius:40% 60% 30% 40% / 20% 70% 30% 50%;
-	}
-	100% {
-	  border-radius: 30% 50% 70% 30% / 40% 60% 80% 40%;
-	}
-  }
-
-  section.blob{
-	  z-index: -100;
-  }
-  
-  section.blob div {
-	width:9em; height:9em;
-	background-color: var(--color-purple);
-	animation:blob 10s linear infinite paused, draaien 40s linear infinite paused;
-  }
-  
-  section.blob div {
-	animation-play-state:running;
-	position: relative;
-  }
-
-  section div.blob2 {
-	position: relative;
-  }
-
-
-  div.opslaan {
-	  width: 100%;
-  }
