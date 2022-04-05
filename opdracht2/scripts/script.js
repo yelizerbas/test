@@ -9,7 +9,7 @@ const allMovies = document.querySelectorAll("main ul li");
 const filters = document.querySelectorAll("header aside input");
 
 const toggleContainer = document.querySelector("div.btn");
-const savedMovieContainer = document.querySelector("section");
+const savedMovieContainer = document.querySelector("section:nth-of-type(3)");
 const savedMovieList = document.querySelector("section ul");
 
 const favoriteButton = document.querySelectorAll("ul:first-of-type li button");

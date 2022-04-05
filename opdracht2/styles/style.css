@@ -149,9 +149,9 @@ li button {
 	background-color: var(--color-purple);
 }
 
-li button img {
+/* li button img {
 	width: fit-content;
-}
+} */
 /********************************************
 *********************************************
 ********************GRID*********************
@@ -217,7 +217,7 @@ section div.btn {
 	label{
 		margin-top: 2em;
 		margin-bottom: 1em;
-		color: var(--color-white);
+		color: var(--color-black);
 	}
 	
 	ul{
@@ -229,6 +229,15 @@ section div.btn {
 		height: 14em;
 		margin-left: 1em;
 	}
+	section.blob div {
+		margin-top: -10em;
+		margin-left: 1em;
+	  }
+	
+	  section div.blob2 {
+		margin-top: -25em;
+		margin-left: 65%;
+	  }
 }
 
 
@@ -264,6 +273,15 @@ section div.btn {
 	section div.btn {
 		margin-left: 45%;
 	}
+	section.blob div {
+		margin-top: -12em;
+		margin-left: 2em;
+	  }
+	
+	  section div.blob2 {
+		margin-top: -30em;
+		margin-left: 65%;
+	  }
 }
 
 
@@ -308,6 +326,16 @@ section div.btn {
 		margin-top: 2em;
 		margin-left: 3em;
 	}
+	section.blob div {
+		margin-top: -12em;
+		margin-left: 2em;
+	  }
+	
+	  section div.blob2 {
+		margin-top: -16em;
+		margin-left: 70%;
+	  }
+	
 }
 
 
@@ -317,7 +345,7 @@ section div.btn {
 ***************BLOB ANIMATIE*****************
 *********************************************
 ********************************************/
-/* @keyframes draaien{
+@keyframes draaien{
 	0% {
 	  transform:rotate(0turn);
 	}
@@ -346,17 +374,25 @@ section div.btn {
 	  border-radius: 30% 50% 70% 30% / 40% 60% 80% 40%;
 	}
   }
+
+  section.blob{
+	  z-index: -100;
+  }
   
   section.blob div {
-	width:6em; height:6em;
+	width:9em; height:9em;
 	background-color: var(--color-purple);
 	animation:blob 10s linear infinite paused, draaien 40s linear infinite paused;
-	z-index: -1;
   }
   
   section.blob div {
 	animation-play-state:running;
-  } */
+	position: relative;
+  }
+
+  section div.blob2 {
+	position: relative;
+  }
 
 
   div.opslaan {
