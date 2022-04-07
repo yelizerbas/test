@@ -1,16 +1,5 @@
 /********************************************
 *********************************************
-**************vragen en to do****************
-*********************************************
-********************************************/
-/* 
-	animaties
-	logo
-*/
-
-
-/********************************************
-*********************************************
 *****************ALGEMEEN********************
 *********************************************
 ********************************************/
@@ -49,6 +38,7 @@ body {
 *********************************************
 ********************************************/
 label {
+	cursor: pointer;
 	margin-top: -2em;
 	color: var(--color-black);
 	font-weight: bold;
@@ -73,6 +63,7 @@ p {
 header aside {
 	display: flex;
 	justify-content: space-evenly;
+	align-items: flex-start;
 }
 
 header img:first-of-type {
@@ -85,18 +76,6 @@ header img:first-of-type {
 *****************FILTEREN********************
 *********************************************
 ********************************************/
-/* ul.actie li:not(.actieFilm) {
-	display: none;
-}
-  
-ul.comedy li:not(.comedyFilm) {
-	display: none;
-}
-  
-ul.horror li:not(.horrorFilm) {
-	display: none;
-} */
-
 input[type="radio"] {
     position: absolute;
 	left: -1000em;
@@ -106,8 +85,12 @@ input[type="radio"]:checked+label {
 	color: var(--color-purple);
 	text-decoration: underline;
 }
+input[type="radio"]:focus+label {
+	/* color: 0 0 1em 1em black; */
+	background-color: #000000	;
+}
 
-ul li {
+main > ul li {
 	display: none;
 }
 
@@ -115,6 +98,9 @@ ul li.zichtbaar {
 	display: list-item;
 }
 
+button:focus{
+	border: #000000;
+}
 /********************************************
 *********************************************
 ********************FILMS********************
@@ -144,24 +130,48 @@ ul li button {
 	background-color: var(--color-purple);
 }
 
+ul li button svg {
+	width: 65%;
+}
+
+ul li button svg path {
+	fill: var(--color-purple);
+	stroke: white;
+}
+
 ul li button:hover{
 	background-color: var(--color-dark-purple);
 }
 
-ul li button img {
-	width: 2em;
-	height: 2em;
-}
 /********************************************
 *********************************************
-********************GRID*********************
+*****************FAVORIETEN******************
 *********************************************
 ********************************************/
-ul{
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	row-gap: 2em;
-	margin: 0 auto;
+section:last-of-type ul {
+	display: flex;
+	gap: 1em;
+	width: 100%;
+	overflow: auto;
+}
+
+section:last-of-type p {
+	display: inline;
+	color: var(--color-white);
+}
+
+section:last-of-type ul li {
+	display: none;
+}
+
+section:last-of-type ul li.favoriet {
+	display: flex;
+	width: fit-content;
+}
+
+ul li.favoriet button svg path {
+	fill: var(--color-white);
+	stroke: var(--color-white)
 }
 
 /********************************************
@@ -169,7 +179,7 @@ ul{
 *******************SLIDER********************
 *********************************************
 ********************************************/
-section {
+section:last-of-type {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
@@ -184,13 +194,27 @@ section.showmenu {
     transform: translateY(0%);
 }
 
-section div.btn {
+/* div.btn {
+	cursor: pointer;
 	width:5em;
 	aspect-ratio:2/.3;
 	position: absolute;
 	margin-left: 40%;
 	margin-top: 1em;
 	border-radius: 5px;
+	color: var(--color-white);
+	background-color: var(--color-white); 
+} */
+
+section:last-of-type button {
+	cursor: pointer;
+	width:5em;
+	aspect-ratio:2/.3;
+	position: absolute;
+	margin-left: 40%;
+	margin-top: 1em;
+	border-radius: 5px;
+	border: var(--color-white);
 	color: var(--color-white);
 	background-color: var(--color-white); 
 }
@@ -229,25 +253,57 @@ section div.btn {
 	  border-radius: 30% 50% 70% 30% / 40% 60% 80% 40%;
 	}
   }
-
-  section.blob{
-	  z-index: -100;
-  }
   
-  section.blob div {
+  div.blob {
 	width:9em; height:9em;
 	background-color: var(--color-purple);
 	animation:blob 10s linear infinite paused, draaien 40s linear infinite paused;
   }
   
-  section.blob div {
+  div.blob {
+	z-index: -100;
 	animation-play-state:running;
 	position: relative;
   }
 
-  section div.blob2 {
-	position: relative;
+
+/********************************************
+*********************************************
+*************ANIMATIE HARTJE*****************
+*********************************************
+********************************************/
+@keyframes hartslag{
+	0%{
+	  transform: scale(1);
+	}
+	5%{
+	  transform: scale(.7);
+	}
+	10%{
+	  transform: scale(1.2);
+	}
+	15%{
+	  transform: scale(.7);
+	}
+	20%{
+	  transform: scale(1.2);
+	}
+	25%{
+	  transform: scale(.7);
+	}
+	30%{
+	  transform: scale(1);
+	}
+	100%{
+	  transform: scale(1);
+	}
   }
+
+ul li.favoriet button svg {
+	animation-name: hartslag;
+	animation-duration: 2s;
+	animation-iteration-count:1;
+}
 
 /********************************************
 *********************************************
@@ -272,25 +328,37 @@ section div.btn {
 		margin-bottom: 1em;
 		color: var(--color-black);
 	}
-	
-	ul{
-		width: fit-content;
+	main > ul{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		row-gap: 2em;
 		margin: 0 auto;
+		width: fit-content;
 	}
 
 	ul li img {
 		height: 14em;
 		margin-left: 1em;
 	}
-	section.blob div {
+	div.blob {
 		margin-top: -10em;
 		margin-left: 1em;
 	  }
 	
-	  section div.blob2 {
+	div#blob2 {
 		margin-top: -25em;
 		margin-left: 65%;
 	  }
+	  section:last-of-type ul {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		row-gap: 2em;
+		margin-top: 1.3em;
+	}
+
+	section:last-of-type p {
+		font-size: 1.1em;
+	}
 }
 
 
@@ -311,7 +379,7 @@ section div.btn {
 		font-size: 1.2em;
 	}
 
-	ul{
+	ul.all{
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 1em;
@@ -323,26 +391,47 @@ section div.btn {
 		object-fit: contain;
 		margin-left: 1em;
 	}
-	section div.btn {
+	/* div.btn {
+		margin-left: 45%;
+	} */
+
+	section:last-of-type button {
 		margin-left: 45%;
 	}
-	section.blob div {
+
+	div.blob {
 		margin-top: -12em;
-		margin-left: 2em;
+		margin-left: 6em;
 	  }
+
+	  section:last-of-type ul {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1em;
+		margin-top: 1.3em;
+	}
 	
-	  section div.blob2 {
+	 div#blob2 {
 		margin-top: -30em;
 		margin-left: 65%;
 	  }
+	  section:last-of-type p {
+		font-size: 1.6em;
+		margin-left: .3em;
+	}
 }
 
 
 
 @media only screen and (min-width: 1201px) {
-	
+	header img:first-of-type {
+		width: 100%;
+		height: auto;
+		margin-top: -10em;
+	}
+
 	label{
-		margin-top: -20%;
+		margin-top: -13%;
 		font-size: 2em;
 		color: var(--color-white);
 	} 
@@ -371,22 +460,34 @@ section div.btn {
 	p {
 		margin-bottom: 8em;
 	}
-	section div.btn {
+
+	/* div.btn {
+		margin-left: 48%;
+	} */
+
+	section:last-of-type button {
 		margin-left: 48%;
 	}
 
 	ul {
-		margin-top: 2em;
-		margin-left: 3em;
+		/* margin-top: -1em; */
+		padding-left: 3em;
 	}
-	section.blob div {
-		margin-top: -12em;
+	 div.blob {
+		margin-top: -14em;
 		margin-left: 2em;
 	  }
 	
-	  section div.blob2 {
+	  div#blob2 {
 		margin-top: -16em;
 		margin-left: 70%;
 	  }
+	  section:last-of-type ul {
+		flex-direction: column;
+	}
+	  section:last-of-type p {
+		font-size: 1.8em;
+		margin-left: .5em;
+	}
 	
 }
